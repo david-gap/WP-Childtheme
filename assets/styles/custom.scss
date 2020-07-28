@@ -27,7 +27,8 @@ Table of Contents:
 @import 'vars';
 
 
-body {
+body.frontend,
+.block-editor .editor-styles-wrapper {
 
   /*==================================================================================
     1.0 COLORS
@@ -35,7 +36,8 @@ body {
 
   /* 1.1 LIGHT THEME
   /––––––––––––––––––––––––*/
-  &.light {
+  &.light,
+  &:not(.dark) {
 
     // MAIN BG
     background-color: $light__main_background;
@@ -162,7 +164,6 @@ body {
   .socialmedia li a:hover svg {
     fill: $color__secondary;
   }
-
 
 
 

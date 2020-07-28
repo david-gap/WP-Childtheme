@@ -19,7 +19,7 @@ Table of Contents:
 =======================================================*/
 
 
-body {
+body.frontend {
 
   /*==================================================================================
   1.0 GENERAL
@@ -169,23 +169,6 @@ body {
     }
     h4, h5, h6 {
       margin-bottom: 0;
-    }
-    .alignwide {
-      margin-left: calc(-100vw / 2 + 100% / 2);
-      margin-right: calc(-100vw / 2 + 100% / 2);
-      max-width: 100vw;
-      @include vpw_min($img_wide_reset) {
-        margin-left: -$img_wide_left;
-        margin-right: -$img_wide_right;
-      }
-    }
-    .alignfull {
-      margin-left: calc(-100vw / 2 + 100% / 2);
-      margin-right: calc(-100vw / 2 + 100% / 2);
-      max-width: 100vw;
-      img {
-        width: 100vw;
-      }
     }
   }
 
