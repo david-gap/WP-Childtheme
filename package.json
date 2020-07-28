@@ -1,0 +1,25 @@
+{
+  "name": "childtheme",
+  "version": "2.2.0",
+  "description": "modules for local development (devDependencies) and frontend-modules (dependencies)",
+  "author": "davidvoglgsang",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^3.0.0",
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-order": "^1.1.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^8.1.1",
+    "gulp-sass": "^4.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^4.3.11"
+  }
+}

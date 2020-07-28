@@ -1,0 +1,20 @@
+/**
+ * Theme sticky header
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+
+@import 'vars';
+
+/* ACTIVE
+/––––––––––––––––––––––––*/
+body.sticky header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  > hr.divider {
+    max-width: 100%;
+  }
+}

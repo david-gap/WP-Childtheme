@@ -1,0 +1,35 @@
+/**
+ * Theme forms
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: $space_short $space_half;
+  border-radius: 0;
+  min-height: 20px;
+  appearance: none;
+}
+
+input[type="submit"] {
+  border-radius: 0;
+  padding: $space_short $space_half;
+  appearance: none;
+  cursor: pointer;
+  margin-top: $space_half;
+}
+
+
+input, select, textarea {
+  &::-webkit-input-placeholder { text-transform: uppercase; }
+  &::-moz-placeholder { text-transform: uppercase; }
+  &:-ms-input-placeholder { text-transform: uppercase; }
+  &:-moz-placeholder { text-transform: uppercase; }
+}

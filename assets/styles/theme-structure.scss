@@ -1,0 +1,245 @@
+/**
+ * Theme structure
+ * Contains everything that is not related to the content itself like
+ * header, footer and main navigations
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+
+@import 'vars';
+
+/*=======================================================
+Table of Contents:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  1.0 GENERAL
+  2.0 HEADER
+  3.0 FOOTER
+=======================================================*/
+
+
+body {
+
+  /*==================================================================================
+  1.0 GENERAL
+  ==================================================================================*/
+  .container {
+    max-width: $container__width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container__side;
+    padding-right: $container__side;
+    @include mobile {
+      padding-left: $space;
+      padding-right: $space;
+    }
+  }
+  header,
+  main,
+  footer {
+    width: 100%;
+  }
+
+
+
+  /*==================================================================================
+  2.0 HEADER
+  ==================================================================================*/
+  > header {
+    transition: $transition_slow;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: $space_half 0;
+      > * {
+        margin-right: $space_double;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      > *:last-child {
+        text-align: right;
+        @include mobile {
+          text-align: left;
+        }
+      }
+      .logo {
+        &.text_logo {
+          text-decoration: none;
+        }
+        img {
+          &:not([width]) {
+            &:not([height]) {
+              object-fit: contain;
+            }
+          }
+        }
+      }
+      #menu-main-container {
+        transition: $transition_fast;
+        ul#menu_main {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: $transition_slow;
+          > li {
+            ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              > li {
+                margin: $space_half 0;
+              }
+            }
+          }
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    > hr.divider {
+      max-width: $container_content;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: .5;
+      transition: $transition_slow;
+    }
+  }
+
+
+
+  /*==================================================================================
+  3.0 MAIN
+  ==================================================================================*/
+  > main {
+    margin: $space_double 0;
+    section,
+    article,
+    .wp-block-container {
+      & > p,
+      & > ol,
+      & > ul,
+      & > figure,
+      & > blockquote,
+      & > .wp-block-button,
+      & > .wp-block-cover,
+      & > .wp-block-file,
+      & > .wp-block-columns,
+      & > .wp-block-columns .wp-block-column,
+      & > .wp-block-columns .wp-block-column p,
+      & > .wp-block-columns .wp-block-column ol,
+      & > .wp-block-columns .wp-block-column ul,
+      & > .wp-block-columns .wp-block-column img,
+      & > .wp-block-columns .wp-block-column figure,
+      & > .wp-block-media-text p,
+      & > .post-password-form p,
+      & > .toggle,
+      & > .toggle > div p,
+      & > .toggle > div ol,
+      & > .toggle > div ul,
+      & > .toggle > div img,
+      & > .toggle > div figure,
+      & > #search-form {
+        margin-bottom: $space;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    h1 {
+      margin-bottom: $space_double;
+    }
+    h2 {
+      margin-top: $space_double;
+      margin-bottom: $space_half;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    h3 {
+      margin-top: $space;
+      margin-bottom: $space_short;
+    }
+    h4, h5, h6 {
+      margin-bottom: 0;
+    }
+    .alignwide {
+      margin-left: calc(-100vw / 2 + 100% / 2);
+      margin-right: calc(-100vw / 2 + 100% / 2);
+      max-width: 100vw;
+      @include vpw_min($img_wide_reset) {
+        margin-left: -$img_wide_left;
+        margin-right: -$img_wide_right;
+      }
+    }
+    .alignfull {
+      margin-left: calc(-100vw / 2 + 100% / 2);
+      margin-right: calc(-100vw / 2 + 100% / 2);
+      max-width: 100vw;
+      img {
+        width: 100vw;
+      }
+    }
+  }
+
+
+  /*==================================================================================
+  4.0 FOOTER
+  ==================================================================================*/
+  > footer {
+    .footer-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      @include mobile {
+        flex-direction: column;
+        .copyright {
+          order: 2;
+        }
+      }
+      > * {
+        margin-bottom: $space;
+      }
+      > *:last-child {
+        text-align: right;
+        @include mobile {
+          text-align: left;
+        }
+      }
+      nav {
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          > li ul {
+            margin-bottom: $space_half
+          }
+        }
+      }
+      address {
+        display: flex;
+        flex-direction: column;
+        &:last-child {
+          .location {
+            justify-content: flex-end;
+            @include mobile {
+              justify-content: flex-start;
+            }
+          }
+        }
+        .location {
+          display: flex;
+          flex-wrap: nowrap;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,122 @@
+/**
+ * Variables
+ *
+ * @author     David Voglgsang
+ *
+*/
+
+
+/*=======================================================
+Table of Contents:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  1.0 SIZING
+    1.1 GENERAL
+    1.2 SPACING
+    1.3 ALIGN WIDE
+  2.0 COLORS
+    2.1 PRESETS
+    2.2 LIGHT THEME
+    2.3 DARK THEME
+  3.0 FONTS
+  4.0 TRANSITIONS
+  5.0 SHADOWS
+=======================================================*/
+
+
+
+/*==================================================================================
+  1.0 SIZING
+==================================================================================*/
+
+  /* 1.1 GENERAL
+  /––––––––––––––––––––––––*/
+  $container__width:  1000px;
+  $breakpoint:        767px;
+
+
+  /* 1.2 SPACING
+  /––––––––––––––––––––––––*/
+  $space_short:       7px;
+  $space_half:        10px;
+  $space:             20px;
+  $space_double:      40px;
+
+
+  /* 1.3 ALIGN WIDE
+  /––––––––––––––––––––––––*/
+  $img_wide_left:     200px;
+  $img_wide_right:    200px;
+  $img_wide_reset:    $container__width + $img_wide_left + $img_wide_right;
+
+
+  /* 1.4 TEMPLATE
+  /––––––––––––––––––––––––*/
+  $container__side:   40px;
+  $container_content: $container__width - $container__side - $container__side;
+
+
+
+/*==================================================================================
+  2.0 COLORS
+==================================================================================*/
+
+  /* 2.1 PRESETS
+  /––––––––––––––––––––––––*/
+  $color__main:                #c1a972;
+  $color__secondary:           #d6c8a9;
+
+
+  /* 2.2 LIGHT THEME
+  /––––––––––––––––––––––––*/
+  $light__main_background:      #f9f9f9;
+  $light__main_color:           #343434;
+
+
+  /* 2.3 DARK THEME
+  /––––––––––––––––––––––––*/
+  $dark__main_background:       #191919;
+  $dark__main_color:            #e0dede;
+
+
+
+/*==================================================================================
+  3.0 FONTS
+==================================================================================*/
+
+  /* 3.1 HTML
+  /––––––––––––––––––––––––*/
+  $html__fontfamily:                'Arial', sans-serif;
+  $html__fontsize:                  12px;
+  $html__lineheight:                1.4;
+  $html__mobile_fontsize:           14px;
+  $html__mobile_lineheight:         1.3;
+
+  /* 3.2 MAIN NAVIGATION
+  /––––––––––––––––––––––––*/
+  $mnav__fontsize:                  100%;
+  $mnav__lineheight:                1.4;
+  $mnav__mobile_fontsize:           120%;
+  $mnav__mobile_lineheight:         1.3;
+
+  /* 3.3 FOOTER
+  /––––––––––––––––––––––––*/
+  $footer__fontsize:                  10px;
+  $footer__lineheight:                1.7;
+
+
+
+/*==================================================================================
+  4.0 TRANSITIONS
+==================================================================================*/
+
+$transition_fast:       .3s;
+$transition_slow:       .7s;
+
+
+
+/*==================================================================================
+  5.0 SHADOWS
+==================================================================================*/
+
+$shadow:                      0 2px 5px 0 rgba(0, 0, 0, 0.16),    0 2px 10px 0 rgba(0, 0, 0, .12);
+$shadow__soft:                0 1px 2px 0 rgba(0, 0, 0, 0.08),    0 1px 5px 0 rgba(0, 0, 0, 0.06);
