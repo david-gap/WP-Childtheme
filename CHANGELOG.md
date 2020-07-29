@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.3.1 | 29.07.2020 <fix classes register>
+* register childtheme classes
+
 ## 1.3 | 29.07.2020 <register classes, backend css>
 * register childtheme classes
 * seperate general styles from backend
