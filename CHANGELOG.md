@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3 | 29.07.2020 <register classes, backend css>
+* register childtheme classes
+* seperate general styles from backend
+
 ## 1.2 | 28.07.2020 <frontend/backend css>
 * change default font
 * move align wide & fullwidth to general

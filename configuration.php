@@ -65,11 +65,21 @@ Table of Contents:
 
   /* 1.3 REGISTER ALL THE CLASSES
   /------------------------*/
+  // register mastertheme classes
   function prefix_registerFunction($class) {
     if ( 0 !== strpos( $class, 'prefix_' ) ) {
         return;
     }
     require_once( get_template_directory() . "/classes/$class/class.$class.php" );
+  }
+  // register childtheme classes
+  function prefix_registerFunction_Child($class) {
+    if ( 0 !== strpos( $class, 'prefix_' ) ) {
+        return;
+    }
+    if(prefix_core_BaseFunctions::CheckDir(get_stylesheet_directory() . '/classes')):
+      require_once( get_stylesheet_directory() . "/classes/$class/class.$class.php" );
+    endif;
   }
 
 
@@ -122,6 +132,7 @@ Table of Contents:
     // register
     add_action( 'init', function(){
       spl_autoload_register('prefix_registerFunction');
+      spl_autoload_register('prefix_registerFunction_Child');
     }, 1 );
     // register
     add_action( 'init', 'prefix_RunClassesInit', 1 );
@@ -130,6 +141,7 @@ Table of Contents:
     prefix_JSON_as_Global();
     // register
     spl_autoload_register('prefix_registerFunction');
+    spl_autoload_register('prefix_registerFunction_Child');
     // run classes init
     prefix_RunClassesInit();
   endif;
