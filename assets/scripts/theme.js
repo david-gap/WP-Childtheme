@@ -2,7 +2,7 @@
  * All sorts javascript/jQuery functions
  *
  * @author      David Voglgsang
- * @version     0.3
+ * @version     0.4
  * @since       0.1
  *
  */
@@ -139,19 +139,25 @@ if (isTouch) {
   /* Sticky menu
   /------------------------*/
   function StickyMenu(action) {
+    // check if sticky is active from load
+    if ($('body').is(".sticky_onload")) {
+      var onload = true;
+    } else {
+      var onload = false;
+    }
     // get new scroll position
     var scroll = $(window).scrollTop(),
     header = $('header').outerHeight();
-    if(scroll > position || action == "load") {
-        if(scroll > header){
+    if(scroll > position && onload == false || action == "load") {
+      if(scroll > header || onload == true){
           $('body.stickyable').addClass('sticky');
-          $("body.stickyable").css("padding-top",header);
+          $("body.stickyable main").css("margin-top",header);
         }
     } else {
       // $('body.stickyable').removeClass('sticky');
-      if(scroll < header){
+      if(scroll < header && onload == false){
         $('body.stickyable').removeClass('sticky');
-        $("body.stickyable").css("padding-top",'');
+        $("body.stickyable main").css("margin-top",'');
       }
     }
     // update main scroll position

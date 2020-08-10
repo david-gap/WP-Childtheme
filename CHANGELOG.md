@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.4.1 | 10.08.2020 <load sticky, css file structure>
+* header sticky on page load
+* custom styling files
+
 ## 1.3.1 | 29.07.2020 <fix classes register>
 * register childtheme classes
 

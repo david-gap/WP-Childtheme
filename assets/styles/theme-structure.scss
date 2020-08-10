@@ -25,7 +25,7 @@ body.frontend {
   1.0 GENERAL
   ==================================================================================*/
   .container {
-    max-width: $container__width;
+    max-width: $container_content;
     margin-left: auto;
     margin-right: auto;
     padding-left: $container__side;
@@ -35,9 +35,9 @@ body.frontend {
       padding-right: $space;
     }
   }
-  header,
-  main,
-  footer {
+  > header,
+  > main,
+  > footer {
     width: 100%;
   }
 
@@ -177,6 +177,7 @@ body.frontend {
   4.0 FOOTER
   ==================================================================================*/
   > footer {
+    margin-top: auto;
     .footer-container {
       display: flex;
       flex-wrap: nowrap;

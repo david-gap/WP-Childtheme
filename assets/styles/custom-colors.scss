@@ -1,0 +1,220 @@
+/*
+ * Custom CSS File - color styling
+ * Add only
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+
+/*=======================================================
+Table of Contents:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  1.0 GENERAL
+    1.1 INPUTS
+    1.2 LINKS
+    1.3 SOCIAL MEDIA
+  2.0 LIGHT COLORING
+    2.1 MAIN BG
+    2.2 LOGO TEXT
+    2.3 HAMBURGER
+    2.4 ACTIVE MENU
+    2.5 DIVIDER
+    2.6 INPUTS
+    2.7 OTHERS
+  3.0 DARK COLORING
+    3.1 MAIN BG
+    3.2 LOGO TEXT
+    3.3 HAMBURGER
+    3.4 ACTIVE MENU
+    3.5 DIVIDER
+    3.6 INPUTS
+    3.7 OTHERS
+  4.0 CUSTOMIZING
+=======================================================*/
+
+
+@import 'vars';
+
+
+body.frontend,
+.block-editor .editor-styles-wrapper {
+
+  /*==================================================================================
+    1.0 GENERAL
+  ==================================================================================*/
+
+  /* 1.1 INPUTS
+  /––––––––––––––––––––––––*/
+  input[type="submit"] {
+    background-color: $color__main;
+    border: 1px solid $color__main;
+    color: $color__secondary;
+    &:hover {
+      background-color: $color__secondary;
+      color: $color__main;
+    }
+  }
+
+  /* 1.2 LINKS
+  /––––––––––––––––––––––––*/
+  a {
+    color: $color__main;
+    text-decoration: none;
+    &:hover {
+      color: $color__secondary;
+    }
+  }
+
+  /* 1.3 SOCIAL MEDIA
+  /––––––––––––––––––––––––*/
+  .socialmedia li a svg {
+    fill: $color__main;
+  }
+  .socialmedia li a:hover svg {
+    fill: $color__secondary;
+  }
+
+
+
+  /*==================================================================================
+    2.0 LIGHT COLORING
+  ==================================================================================*/
+
+  &.light,
+  &:not(.dark) {
+
+    /* 2.1 MAIN BG
+    /––––––––––––––––––––––––*/
+    background-color: $light__main_background;
+    color: $light__main_color;
+    header,
+    footer {
+      background-color: $light__main_background;
+    }
+
+    /* 2.2 LOGO TEXT
+    /––––––––––––––––––––––––*/
+    .text_logo {
+      color: $color__main;
+    }
+
+    /* 2.3 HAMBURGER
+    /––––––––––––––––––––––––*/
+     header .hamburger {
+      span {
+        background: $light__main_color;
+        &:before,
+        &:after {
+            background: $light__main_color;
+        }
+      }
+    }
+
+    /* 2.4 ACTIVE MENU
+    /––––––––––––––––––––––––*/
+    &.active-menu {
+      #menu-main-container {
+        background-color: $light__main_background;
+      }
+    }
+
+    /* 2.5 DIVIDER
+    /––––––––––––––––––––––––*/
+     header > hr.divider {
+       border-color: $light__main_color;
+    }
+
+    /* 2.6 INPUTS
+    /––––––––––––––––––––––––*/
+    input, select, textarea {
+      &::-webkit-input-placeholder {color: $light__main_color; }
+      &::-moz-placeholder {color: $light__main_color; }
+      &:-ms-input-placeholder {color: $light__main_color; }
+      &:-moz-placeholder {color: $light__main_color; }
+    }
+
+    /* 2.7 OTHERS
+    /––––––––––––––––––––––––*/
+
+
+
+  }
+
+
+
+  /*==================================================================================
+    3.0 DARK COLORING
+  ==================================================================================*/
+
+  /* 3.2 DARK THEME
+  /––––––––––––––––––––––––*/
+  &.dark {
+
+    /* 3.1 MAIN BG
+    /––––––––––––––––––––––––*/
+    background-color: $dark__main_background;
+    color: $dark__main_color;
+    &body,
+    header,
+    footer {
+      background-color: $dark__main_background;
+    }
+
+    /* 3.2 LOGO TEXT
+    /––––––––––––––––––––––––*/
+    .text_logo {
+      color: $color__secondary;
+    }
+
+    /* 3.3 HAMBURGER
+    /––––––––––––––––––––––––*/
+    header .hamburger {
+      span {
+        background: $dark__main_color;
+        &:before,
+        &:after {
+            background: $dark__main_color;
+        }
+      }
+    }
+
+    /* 3.4 ACTIVE MENU
+    /––––––––––––––––––––––––*/
+    &.active-menu {
+      #menu-main-container {
+        background-color: $dark__main_background;
+      }
+    }
+
+    /* 3.5 DIVIDER
+    /––––––––––––––––––––––––*/
+     header > hr.divider {
+       border-color: $dark__main_color;
+    }
+
+    /* 3.6 INPUTS
+    /––––––––––––––––––––––––*/
+    input, select, textarea {
+      &::-webkit-input-placeholder {color: $dark__main_color; }
+      &::-moz-placeholder {color: $dark__main_color; }
+      &:-ms-input-placeholder {color: $dark__main_color; }
+      &:-moz-placeholder {color: $dark__main_color; }
+    }
+
+    /* 3.7 OTHERS
+    /––––––––––––––––––––––––*/
+
+
+
+  }
+
+
+
+  /*==================================================================================
+    4.0 CUSTOMIZING
+  ==================================================================================*/
+
+
+
+}

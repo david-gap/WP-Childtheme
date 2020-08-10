@@ -1,0 +1,57 @@
+/**
+ * Custom CSS File - input styling
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+
+/*=======================================================
+Table of Contents:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  1.0 DEFAULTS
+  2.0 CUSTOMIZING
+=======================================================*/
+
+
+body.frontend,
+.block-editor .editor-styles-wrapper {
+
+  /*==================================================================================
+    1.0 DEFAULTS
+  ==================================================================================*/
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: $space_short $space_half;
+    border-radius: 0;
+    min-height: 20px;
+    appearance: none;
+  }
+
+  input[type="submit"] {
+    border-radius: 0;
+    padding: $space_short $space_half;
+    appearance: none;
+    cursor: pointer;
+    margin-top: $space_half;
+  }
+
+  input, select, textarea {
+    &::-webkit-input-placeholder { text-transform: uppercase; }
+    &::-moz-placeholder { text-transform: uppercase; }
+    &:-ms-input-placeholder { text-transform: uppercase; }
+    &:-moz-placeholder { text-transform: uppercase; }
+  }
+
+
+
+  /*==================================================================================
+    2.0 CUSTOMIZING
+  ==================================================================================*/
+
+
+
+}

@@ -19,7 +19,6 @@
 @import 'theme-structure';
 @import 'theme-hamburger';
 @import 'theme-sticky';
-@import 'theme-forms';
 
 
 
@@ -32,4 +31,7 @@
 /*==================================================================================
   CUSTOMIZING
 ==================================================================================*/
+@import 'custom-forms';
+@import 'custom-fonts';
+@import 'custom-colors';
 @import 'custom';

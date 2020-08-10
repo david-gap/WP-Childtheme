@@ -25,6 +25,7 @@ header .hamburger {
   outline: none;
   cursor: pointer;
   background-color: transparent;
+  padding: 0;
   &:hover {
     span {
       &:before,
