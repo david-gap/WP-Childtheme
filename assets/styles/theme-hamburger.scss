@@ -137,6 +137,7 @@ header #menu-main-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: scroll;
     > ul {
       padding: $space_double $space;
       font-size: $mnav__mobile_fontsize;

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.2 | 10.08.2020 <mobile menu>
+* mobile menu scrollable
+
 ## 1.4.1 | 10.08.2020 <load sticky, css file structure>
 * header sticky on page load
 * custom styling files
