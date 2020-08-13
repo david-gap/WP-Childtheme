@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.4.3 | 10.08.2020 <master, body>
+* Fix master theme name
+* Set body margin and padding to 0
+
 ## 1.4.2 | 10.08.2020 <mobile menu>
 * mobile menu scrollable
 
