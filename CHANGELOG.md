@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## 1.4.3 | 10.08.2020 <master, body>
+## 1.4.4 | 14.08.2020 <backend title>
+* Fix backend title font size override
+* Backend post/page title small if title is hidden
+
+## 1.4.3 | 13.08.2020 <master, body>
 * Fix master theme name
 * Set body margin and padding to 0
 

@@ -166,6 +166,8 @@ body.frontend  {
         max-width: 100%;
       }
     }
+
+  // close frontend body
   }
 
 
@@ -259,6 +261,8 @@ body.frontend  {
   BACKEND
 ==================================================================================*/
 
+/* DEFAULT FONT SIZE
+/––––––––––––––––––––––––*/
 .editor-styles-wrapper * {
   font-family: $html__fontfamily;
   font-size: $html__fontsize;
@@ -266,6 +270,16 @@ body.frontend  {
   @include mobile {
     font-size: $html__mobile_fontsize;
     line-height: $html__mobile_lineheight;
+  }
+}
+
+
+/* PAGE NAME - TITLE HIDDEN
+/––––––––––––––––––––––––*/
+.editor-post-title__input {
+  &.small {
+    font-size: 10px;
+    height: 30px!important;
   }
 }
 
