@@ -261,6 +261,16 @@ body.frontend  {
   BACKEND
 ==================================================================================*/
 
+/* CONTAINER
+/––––––––––––––––––––––––*/
+.editor-styles-wrapper .wp-block {
+  &:not([data-align="full"]){
+    &:not([data-align="wide"]){
+      max-width: $container_content;
+    }
+  }
+}
+
 /* DEFAULT FONT SIZE
 /––––––––––––––––––––––––*/
 .editor-styles-wrapper * {

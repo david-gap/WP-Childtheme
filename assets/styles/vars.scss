@@ -53,6 +53,7 @@ Table of Contents:
   /––––––––––––––––––––––––*/
   $container__side:   40px;
   $container_content: $container__width - $container__side - $container__side;
+  $container_spacing: calc(100% - #{$container__width});
 
 
 

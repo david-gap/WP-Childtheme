@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.5.4 | 02.09.2020 <gutenberg blocks, header & footer>
+* Demo for a Gutenberg block template
+* Demo for a custom Gutenberg block pattern
+* CSS for header & footer container with before and after values
+
 ## 1.4.4 | 14.08.2020 <backend title>
 * Fix backend title font size override
 * Backend post/page title small if title is hidden

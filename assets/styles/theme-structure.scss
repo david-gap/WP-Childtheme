@@ -30,6 +30,9 @@ body.frontend {
     margin-right: auto;
     padding-left: $container__side;
     padding-right: $container__side;
+    @include vpw_min($container__width) {
+      width: 100%;
+    }
     @include mobile {
       padding-left: $space;
       padding-right: $space;
@@ -39,6 +42,27 @@ body.frontend {
   > main,
   > footer {
     width: 100%;
+  }
+
+  .before-container,
+  .after-container {
+    width: 100%;
+    max-width: calc(#{$container_spacing} / 2);
+    min-width: fit-content;
+    &:empty {
+      padding: 0;
+    }
+  }
+  .before-container {
+    padding-left: $space;
+  }
+  .after-container {
+    direction: rtl;
+    padding-right: $space;
+    @include mobile {
+      direction: ltr;
+      padding-left: $space;
+    }
   }
 
 
@@ -51,18 +75,22 @@ body.frontend {
     nav {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: $space_half 0;
-      > * {
-        margin-right: $space_double;
-        &:last-child {
-          margin-right: 0;
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > * {
+          margin-right: $space_double;
+          &:last-child {
+            margin-right: 0;
+          }
         }
-      }
-      > *:last-child {
-        text-align: right;
-        @include mobile {
-          text-align: left;
+        > *:last-child {
+          text-align: right;
+          @include mobile {
+            text-align: left;
+          }
         }
       }
       .logo {
@@ -106,6 +134,7 @@ body.frontend {
     }
     > hr.divider {
       max-width: $container_content;
+      margin-bottom: 0;
       margin-left: auto;
       margin-right: auto;
       opacity: .5;
@@ -177,13 +206,18 @@ body.frontend {
   4.0 FOOTER
   ==================================================================================*/
   > footer {
+    display: flex;
     margin-top: auto;
+    @include mobile {
+      flex-direction: column;
+    }
     .footer-container {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
       @include mobile {
         flex-direction: column;
+        margin: 0;
         .copyright {
           order: 2;
         }
@@ -197,31 +231,31 @@ body.frontend {
           text-align: left;
         }
       }
-      nav {
-        ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          > li ul {
-            margin-bottom: $space_half
+    }
+    nav {
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        > li ul {
+          margin-bottom: $space_half
+        }
+      }
+    }
+    address {
+      display: flex;
+      flex-direction: column;
+      &:last-child {
+        .location {
+          justify-content: flex-end;
+          @include mobile {
+            justify-content: flex-start;
           }
         }
       }
-      address {
+      .location {
         display: flex;
-        flex-direction: column;
-        &:last-child {
-          .location {
-            justify-content: flex-end;
-            @include mobile {
-              justify-content: flex-start;
-            }
-          }
-        }
-        .location {
-          display: flex;
-          flex-wrap: nowrap;
-        }
+        flex-wrap: nowrap;
       }
     }
   }
