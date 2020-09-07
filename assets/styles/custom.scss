@@ -13,6 +13,8 @@ Table of Contents:
   1.0 TEMPLATE
     1.1 TOGGLE
     1.2 COLUMNS
+    1.3 SOCIAL MEDIA
+    1.4 BLOG & SEARCH
   2.0 CUSTOM
   3.0 BACKEND
 =======================================================*/
@@ -110,6 +112,57 @@ body.frontend,
       }
       + li {
         margin-left: $space_half;
+      }
+    }
+  }
+
+
+  /* 1.4 BLOG & SEARCH
+  /––––––––––––––––––––––––*/
+  #search-results,
+  #home,
+  #archive {
+    margin-top: 20px;
+    article {
+      &.flex {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        @include mobile {
+          flex-direction: column;
+          > div,
+          > img {
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: calc(60% - 20px);
+          margin-right: 20px;
+          .entry-content {
+            flex-grow: 1;
+          }
+        }
+        > img,
+        > figure {
+          width: 40%;
+          margin: 0;
+          line-height: 0,
+        }
+      }
+      + article {
+        margin-top: 40px;
+      }
+      .post-meta {}
+      .list-category {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
       }
     }
   }

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.6.4 | 07.09.2020 <blog template style>
+* block style on overview page
+
 ## 1.5.4 | 02.09.2020 <gutenberg blocks, header & footer>
 * Demo for a Gutenberg block template
 * Demo for a custom Gutenberg block pattern

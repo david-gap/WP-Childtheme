@@ -1,6 +1,6 @@
 
 
-**Version 1.5.4** (02.09.2020)
+**Version 1.6.4** (07.09.2020)
 
 ## Configuration steps
 * style.css - Rename Childthme
