@@ -1,0 +1,71 @@
+http://youmightnotneedjquery.com/
+
+EVENTS
+document.addEventListener('action', function, propagation);
+document.removeEventListener('action', function, propagation);
+https://developer.mozilla.org/de/docs/Web/Events
+
+e.target.id         // id of event element
+this.id             // id of refered element
+e.stopPropagation   // do not notify parents
+
+DOM SELECTION
+https://developer.mozilla.org/en-US/docs/Web/API/Document
+
+var content = document.getElementById('content')         // select element by ID
+var content = document.getElementsByTagName('div')       // array with all elements with tag div
+var content = document.getElementsByClassName('content') // array with all elements with class content
+var content = document.querySelector('.content')         // get first element with class content
+var content = document.querySelectorAll('.content')      // array with all elements with class content
+
+content.parentElement                               // get parent element (node)
+content.parentElement.parentElement                 // get parent of the parent element
+content.children                                    // get all element children
+content.firstelementChild                           // get first child element
+content.lastelementChild                            // get last child element
+content.firstChild                                  // get first child element (node)
+content.lastChild                                   // get last child element (node)
+content.innerHTML                                   // html output
+content.innerText                                   // return the text
+content.textContent                                 // return the text formated
+content.getAttributes                               // get a array with all element attributes
+content.getAttribute('href')                        // get attribute name
+content.setAttribute('href', 'link')                // insert attribute to element
+content.removeAttribute('href')                     // remove attribute from element
+content.className                                   // all css classes as string
+content.classList                                   // all css classes as array (node)
+content.classList.add()                             // add css class
+content.classList.remove()                          // remove css class
+content.classList.toggle()                          // toggle css class
+content.dataset                                     // all data attributes (node)
+content.dataset.dataname                            // change or get data attribute named dataname
+document.createElement('div')                       // create a element
+content.appendChild(child)                          // insert created element into other element end
+content.cloneNode()                                 // clone existing element
+content.cloneNode(true)                             // clone existing element with all children
+content.remove();                                   // remove element in DOM (Not working with old browsers)
+content.removeChild(element);                       // remove element from parent in DOM
+parentElement.insertBefore(new, before)             // insert a element before other element
+parentElement.insertBefore(new, before.nextSibling) // insert a element after other element
+parentElement.replaceChild(new, old)                // replace element with new element
+
+form[0].value                         // get or overwrite first input value
+form[0].name                          // get or overwrite first input name
+selectedInput.checked = true          // after selecting a radio/checkbox set as cheked
+selectedInput.select = true           // after selecting a select option set as selected
+
+window.getComputedStyle(element)                    // get all styles of a selected element
+window.getComputedStyle(element).boderColor         // get a single style of a selected element
+window.getComputedStyle(element, 'pseudo').content  // get a single style of a selected element pseudo
+element.style.color = 'black';                      // set inline style for selected element
+document.styleSheets                                // array of all included stylesheets
+document.styleSheets[0].cssRules                    // array of all styles inside css file
+
+
+JSON.parse(object, revivor)              // JSON object to javascript object, revivor maps to a function to modify values
+JSON.stringify(object, replacer, space)  // javascript object to JSON object, replacer maps to a function to modify values, space for formating
+
+// for store data in browser
+localStorage.setItem(key, value)
+localStorage.getItem(key)
+localStorage.removeItem(key)

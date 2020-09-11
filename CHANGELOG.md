@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.7.4 | 11.09.2020 <ajax safty, javascript 1.0 release>
+* fix video max width
+* ajax safty
+* remove jQuery from base theme
+* add cheatsheet for javascript
+
 ## 1.6.4 | 07.09.2020 <blog template style>
 * block style on overview page
 

@@ -5,14 +5,15 @@
  * Ajax actions
  *
  * @author      David Voglgsang
- * @version     1.0
+ * @version     1.1
  *
 */
 
 // Get variables from ajax request
+$access = isset($_POST['access']) ? $_POST['access'] : $_GET['access'];
 $run_action = isset($_POST['action']) ? $_POST['action'] : $_GET['action'];
 
-if($run_action):
+if($access == 'granted'):
 
   /* CONNECT TO DATABASE
   /===================================================== */
@@ -32,29 +33,54 @@ if($run_action):
 
   /* DEMO FUNCTION
   /------------------------*/
-  function DemoFunction(){
-    $output  = '';
-    $output .= '<div></div>';
-    // return result$return = array(
-      'message' => 'message',
-      'type' => 'success or error',
-      'log' => 'Log',
-      'output' => $output
+  function DemoAjaxFunction(){
+    $return = array(
+      'action' => 'DEMO',  // run js function
+      'log' => 'Log'       // return in the console
     );
     echo json_encode($return);
-
   }
+
+
+  /* GET CONFIGURATION FILE
+  /------------------------*/
+  function getConfigurationFile(){
+    // get file
+    $configuration_file = 'configuration.json';
+    // check if file exists or empty
+    if(file_exists($configuration_file) && filesize($configuration_file) > 0):
+      $configuration_content = file_get_contents($configuration_file);
+      $configuration = json_decode($configuration_content,true);
+    else:
+      $configuration = false;
+    endif;
+    // output for js file
+    $return = array(
+      'action' => 'themeConfiguration',
+      'content' => $configuration
+    );
+    echo json_encode($return);
+  }
+
 
 
   /* RUN FUNCTIONS
   /===================================================== */
   switch ($run_action) {
     case "DEMO":
-      DemoFunction();
+      DemoAjaxFunction();
+      break;
+    case "configuration":
+      getConfigurationFile();
       break;
 
     default:
       echo "Keine Aktion definiert";
   }
 
+else:
+  $return = array(
+    'log' => 'access denied'  // return in the console
+  );
+  echo json_encode($return);
 endif;

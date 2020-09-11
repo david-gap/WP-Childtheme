@@ -159,10 +159,6 @@ body.frontend  {
   /––––––––––––––––––––––––*/
   .wp-block-video,
   .is-type-video {
-    video,
-    iframe {
-      max-width: 100%;
-    }
     &.alignwide,
     &.alignfull {
       text-align: center;
@@ -170,6 +166,10 @@ body.frontend  {
         width: 100%;
         max-width: 100%;
       }
+    }
+    video,
+    iframe {
+      max-width: 100%;
     }
 
   // close frontend body
