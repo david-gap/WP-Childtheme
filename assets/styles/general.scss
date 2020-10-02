@@ -47,24 +47,27 @@
 ==================================================================================*/
 
 html {
-  width: 100%;
-  max-width: 100vw;
-  height: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  font-family: $html__fontfamily;
-  font-size: $html__fontsize;
-  line-height: $html__lineheight;
-  margin: 0;
-  @include mobile {
-    font-size: $html__mobile_fontsize;
-    line-height: $html__mobile_lineheight;
-  }
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  &.noscroll {
-    overflow: hidden;
+  &:not(.wp-toolbar) {
+    width: 100%;
+    max-width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: $html__fontfamily;
+    font-size: $html__fontsize;
+    line-height: $html__lineheight;
+    margin: 0;
+    scroll-behavior: smooth;
+    @include mobile {
+      font-size: $html__mobile_fontsize;
+      line-height: $html__mobile_lineheight;
+    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &.noscroll {
+      overflow: hidden;
+    }
   }
 }
 
@@ -93,6 +96,26 @@ body.frontend  {
     background-position: 50% 50%;
     background-size: contain;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  main {
+    * {
+      /* Gutenberg font size
+      /––––––––––––––––––––––––*/
+      font-size: var(--font-size);
+      @include mobile {
+        font-size: calc(var(--font-size) * var($gutenberg__font_scale));
+      }
+      /* Anchor position
+      /––––––––––––––––––––––––*/
+      // anchors are not allowed to have top spacing
+      &[id]:target {
+        // scroll-margin-top: 100px;
+        // scroll-snap-margin-top: 100px;
+        padding-top: $html__anchor;
+        margin-top: -$html__anchor;
+      }
+    }
   }
 
 
@@ -218,16 +241,6 @@ body.frontend  {
   }
 
 
-  /* CALL FUNCTION
-  /––––––––––––––––––––––––*/
-  html[data-touch="false"] .call {
-    cursor: auto;
-    pointer-events: none;
-    color: inherit;
-    text-decoration: inherit;
-  }
-
-
   /* REMOVE MOBILE SUBMIT STYLING
   /––––––––––––––––––––––––*/
   input[type="submit"] {
@@ -236,6 +249,16 @@ body.frontend  {
     appearance: none;
   }
 
+}
+
+
+/* CALL FUNCTION
+/––––––––––––––––––––––––*/
+html[data-touch="false"] .call {
+  cursor: auto;
+  pointer-events: none;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 
@@ -278,13 +301,13 @@ body.frontend  {
 
 /* DEFAULT FONT SIZE
 /––––––––––––––––––––––––*/
-.editor-styles-wrapper * {
-  font-family: $html__fontfamily;
-  font-size: $html__fontsize;
-  line-height: $html__lineheight;
+.editor-styles-wrapper {
+  font-family: $html__fontfamily !important;
+  font-size: $html__fontsize !important;
+  line-height: $html__lineheight !important;
   @include mobile {
-    font-size: $html__mobile_fontsize;
-    line-height: $html__mobile_lineheight;
+    font-size: $html__mobile_fontsize !important;
+    line-height: $html__mobile_lineheight !important;
   }
 }
 

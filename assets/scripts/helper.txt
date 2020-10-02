@@ -61,6 +61,72 @@ element.style.color = 'black';                      // set inline style for sele
 document.styleSheets                                // array of all included stylesheets
 document.styleSheets[0].cssRules                    // array of all styles inside css file
 
+// native object methods
+Object.call()                                     // binding "this" and call the function
+Object.apply()                                    // binding "this" and call the function
+Object.bind()                                     // assine "this" with new object or values
+Object.isGenerator()
+Object.toSource()
+Object.toString()                                 //
+Object.defineProperty(obj, property, descriptors) // assign new property to a object
+Object.defineProperties(obj, properties)          // assign new properties to a object
+Object.getOwnPropertyDescriptor(obj, property)    // get a single property descriptors from a object
+Object.getOwnPropertyDescriptors(obj)             // get all properties descriptors from a object
+Object.seal(obj)                                  // prevent of adding new properties
+Object.isSealed(obj)                              // check if object is sealed
+Object.freeze(obj)                                // prevent of changing object properties
+Object.isFrozen(obj)                              // check if object is frozen
+Object.entries(obj)                               // return array of enumerable properties
+Object.getOwnPropertyNames(obj)                   // return array of all property names
+Object.getOwnPropertySymbols(obj)                 // return array of all symbol properties
+Object.setPrototypeOf(toObj, fromObj)             // causes one object to inherit the methods and properties chain of another object
+Object.getPrototypeOf(obj)                        // return the prototype for an object
+Object.create(sourceObj, newProperties)           // create a object using another object as the prototype
+Object.assign({}, sourceObj, newProperties)       // copy properties, methods and prototype chain of objects into new object
+obj = new Function({attributes});                 // constructor: function used with keyword "new" to create objects
+
+instanceof // check for function as a constructor in an objects inheritance chain
+
+// object propeties
+obj.length                    // number of values in array or letters in string
+obj.prototype                 // placeholder property for methods that other objects can inherit
+obj.__proto__                 // objet with the chain of methods an object has inherited
+obj.name
+
+// array methods
+array.isArray()
+array.concat()
+array.every()
+array.filter()
+array.find()
+array.forEach()
+array.includes()
+array.join()
+array.pop()
+array.push()
+array.reduce()
+array.shift()
+array.slice()
+array.splice()
+array.toString()
+array.unshift()
+array.values
+
+// array propeties
+array.length
+array.prototype
+
+// String Methods
+String.includes()
+String.slice()
+String.substr()
+String.toUpperCase()
+String.trim()
+String.toString()
+
+// String propeties
+String.length
+String.prototype
 
 JSON.parse(object, revivor)              // JSON object to javascript object, revivor maps to a function to modify values
 JSON.stringify(object, replacer, space)  // javascript object to JSON object, replacer maps to a function to modify values, space for formating

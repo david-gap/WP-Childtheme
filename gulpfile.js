@@ -43,28 +43,29 @@ var vendors = require('./gulp-vendors.json');
 /* DEPENDENCIES
 /===================================================== */
 // general
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var rename = require("gulp-rename");
-var order = require("gulp-order");
-var browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
+const rename = require("gulp-rename");
+const order = require("gulp-order");
+const browserSync = require('browser-sync').create();
 // css
-var sass = require('gulp-sass');
-var cleanCSS = require('gulp-clean-css');
-var autoprefixer = require('gulp-autoprefixer');
+const sass = require('gulp-sass');
+const cleanCSS = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer');
 // cache busting
-var rev = require('gulp-rev');
+const rev = require('gulp-rev');
 // js
-var uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify');
 // images
-var imagemin = require('gulp-imagemin');
+const imagemin = require('gulp-imagemin');
 // error handling with notify & plumber
-var notify = require("gulp-notify");
-var plumber = require('gulp-plumber');
+const notify = require("gulp-notify");
+const plumber = require('gulp-plumber');
 // watch
-var watch = require('gulp-watch');
+const watch = require('gulp-watch');
 // delete
-var del = require('del');
+const del = require('del');
 
 
 /* TASKS
@@ -161,6 +162,9 @@ gulp.task('javascript', gulp.series('clean:javascript', function() {
     ], { base: './' }))
     .pipe(plumber({errorHandler: notify.onError("<%= error.message %>")}))
     .pipe(concat('script.min.js'))
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
     .pipe(uglify())
     .pipe(rename('dist/script.min.js'))
     .pipe(gulp.dest('./'))

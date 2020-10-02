@@ -11,18 +11,21 @@
   SETTINGS
 ==================================================================================*/
 
+'use strict';
+
 /* Global values
 /------------------------*/
-var root = document.querySelector('html'),
-    configuration = ajaxCall({action: 'configuration'}),
-    language = root.getAttribute('lang'),
-    isTouch = 'ontouchstart' in document.documentElement,
-    position = root.scrollTop,
-    body = root.querySelector('body'),
-    header = body.querySelector('header'),
-    mainMenu = header.querySelector('#menu-main-container'),
-    hamburger = header.querySelector('.hamburger'),
-    main = body.querySelector('main'),
+const root = document.querySelector('html'),
+      configuration = ajaxCall({action: 'configuration'}),
+      language = root.getAttribute('lang'),
+      isTouch = 'ontouchstart' in document.documentElement,
+      body = root.querySelector('body'),
+      header = body.querySelector('header'),
+      mainMenu = header.querySelector('#menu-main-container'),
+      hamburger = header.querySelector('.hamburger'),
+      main = body.querySelector('main');
+
+let position = root.scrollTop,
     scrollPosition = window.scrollY;
 
 
@@ -174,8 +177,8 @@ function themeConfiguration(data){
       var colorPalette = data.content.gutenberg.ColorPalette;
       var keys = Object.keys(data.content.gutenberg.ColorPalette);
       for(var i=0; i<keys.length; i++){
-        addCSSRule(document.styleSheets[0], '.has-' + slugify(colorPalette[i].key) + '-background-color', 'background-color: ' + colorPalette[i].value);
-        addCSSRule(document.styleSheets[0], '.has-' + slugify(colorPalette[i].key) + '-color', 'color: ' + colorPalette[i].value);
+        addCSSRule(document.styleSheets[0], 'body.frontend .has-' + slugify(colorPalette[i].key) + '-background-color', 'background-color: ' + colorPalette[i].value);
+        addCSSRule(document.styleSheets[0], 'body.frontend .has-' + slugify(colorPalette[i].key) + '-color', 'color: ' + colorPalette[i].value);
       }
     }
   }
@@ -188,7 +191,7 @@ function StickyMenu(action) {
   // check if sticky is active from load
   if (body.classList.contains('sticky_onload')) {
     var onload = true;
-    window.removeEventListener('scroll', debounceSticky);
+    // window.removeEventListener('scroll', debounceSticky);
   } else {
     var onload = false;
   }
@@ -209,6 +212,12 @@ function StickyMenu(action) {
   }
   // update main scroll position
   scrollPosition = scroll;
+  // body css if page is not on top
+  if(scrollPosition > 0){
+    body.classList.add("scrolled");
+  } else {
+    body.classList.remove("scrolled");
+  }
 }
 var debounceSticky = debounce(function() {
   StickyMenu();
@@ -230,7 +239,9 @@ function MenuToggler() {
   // identify active menu
   body.classList.toggle("active-menu");
 }
-hamburger.addEventListener('click', MenuToggler);
+if(hamburger) {
+  hamburger.addEventListener('click', MenuToggler);
+}
 
 
 /* Action Links
@@ -244,21 +255,23 @@ function funcCall(){
   // actions
   if(get_ajax_action){
     // run ajax function
-    var configuration = {
+    var config = {
       action: get_action,
       id: get_id
     };
-    ajaxCall(configuration);
+    ajaxCall(config);
   } else if (get_action) {
     // run function
     eval(get_action + '()');
   }
 }
 var actionButtons = document.querySelectorAll('.funcCall');
-Array.from(actionButtons).forEach(function(element) {
-  element.addEventListener('click', funcCall);
-  element.addEventListener('keypress', funcCall);
-});
+if(actionButtons){
+  Array.from(actionButtons).forEach(function(element) {
+    element.addEventListener('click', funcCall);
+    element.addEventListener('keypress', funcCall);
+  });
+}
 
 
 
@@ -271,8 +284,10 @@ Array.from(actionButtons).forEach(function(element) {
 function toggleBlock(){
   this.classList.toggle("active");
 }
-var actionButtons = document.querySelectorAll('.toggle > .label');
-Array.from(actionButtons).forEach(function(element) {
-  element.addEventListener('click', toggleBlock);
-  element.addEventListener('keypress', toggleBlock);
-});
+var toggleButtons = document.querySelectorAll('.toggle > .label');
+if(toggleButtons){
+  Array.from(toggleButtons).forEach(function(element) {
+    element.addEventListener('click', toggleBlock);
+    element.addEventListener('keypress', toggleBlock);
+  });
+}
