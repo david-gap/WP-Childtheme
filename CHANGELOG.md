@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.8.4 | 00.00.2020 <gulp, js, mautic, anchor & inline fs>
+## 1.9.4 | 08.03.2021 <gulp, js, mautic, anchor & inline fs>
 * add gulp-babel to allow const and let
 * add use strict to javascript
 * add body and frontend class to additional JS css
@@ -9,6 +9,8 @@
 * IE javascript file for fixes
 * Anchor position for sticky header // css solution
 * Inline font size responsive solution
+* JS PopUp container
+* Swiper/Grid Gallery Gutenberg friendly
 
 ## 1.7.4 | 11.09.2020 <ajax safty, javascript 1.0 release>
 * fix video max width

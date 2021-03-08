@@ -1,0 +1,163 @@
+/**
+ * Theme gallery
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+
+// frontend only
+body.frontend {
+
+  /* SWIPER
+  /––––––––––––––––––––––––*/
+  .gallery-swiper {
+    ul {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+          display: none;
+      }
+    }
+  }
+
+}
+
+
+
+body.frontend,
+.block-editor .editor-styles-wrapper {
+
+  .add-popup {
+    ul {
+      li {
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  /* GRID
+  /––––––––––––––––––––––––*/
+  .gallery-grid {
+    ul {
+      list-style: none;
+    }
+  }
+
+
+  /* SWIPER
+  /––––––––––––––––––––––––*/
+  .gallery-swiper {
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      .arrow {
+        opacity: 1;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      overflow-y: hidden;
+      width: 100%;
+      li {
+        scroll-snap-align: start;
+        padding: 0;
+        margin: 0;
+        -webkit-box-flex: 0;
+        flex: 0 0 100%;
+        flex-basis: 100%;
+        width: 100%;
+        max-width: none;
+        &:before {
+          display: none;
+        }
+        figure {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: unset!important;
+        }
+      }
+    }
+  }
+
+
+  /* SWIPER NAVIGATION ARROWS
+  /––––––––––––––––––––––––*/
+  .gallery-swiper .arrow {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: calc(50% - 35px);
+    border: solid transparent;
+    border-width: 5px 10px;
+    width: 40px;
+    height: 70px;
+    transition: .3s;
+    opacity: 0;
+    @include mobile {
+      top: calc(50% - 20px);
+      width: 25px;
+      height: 40px;
+      html[data-touch="true"] & {
+        display: none;
+      }
+    }
+    &.back {
+      left: 20px;
+      @include mobile {
+        left: 5vw;
+      }
+    }
+    &.next {
+      transform: rotate(180deg);
+      right: 20px;
+      @include mobile {
+        right: 5vw;
+      }
+    }
+    &.hidden {
+      opacity: 0;
+    }
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+
+  /* CUSTOMIZE
+  /––––––––––––––––––––––––*/
+  // .gallery-swiper {
+  //   height: 440px;
+  //   @include vpw_max($container__width){
+  //     height: 43.8vw;
+  //   }
+  //   ul {
+  //     height: 460px;
+  //     @include vpw_max($container__width){
+  //       height: calc(43.8vw + 20px);
+  //     }
+  //     li {
+  //       height: 440px;
+  //       @include vpw_max($container__width){
+  //         height: 43.8vw;
+  //       }
+  //     }
+  //   }
+  // }
+
+}

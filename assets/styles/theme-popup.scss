@@ -1,0 +1,185 @@
+/**
+ * Theme Pop Up
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+$popup__width:       800px;
+$popup__space:       40px;
+$popup_prev_break:   $popup__width + $popup__space + $popup__space;
+$popup_prev_visible: 30px;
+
+/* POPUP
+/––––––––––––––––––––––––*/
+.popup-noscroll {
+  overflow: hidden;
+}
+
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  z-index: 1199;
+  opacity: 1;
+  pointer-events: auto;
+  user-select: none;
+  transition: $transition_fast;
+  &.closed {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: $transition_fast;
+  }
+  .popup-next-preview,
+  .popup-back-preview {
+    position: absolute;
+    width: $popup__width;
+    line-height: 0;
+    @include vpw_max($popup_prev_break) {
+      width: calc(100vw - #{$popup__space} - #{$popup__space});
+    }
+    @include mobile {
+      display: none;
+    }
+    img {
+      opacity: .4;
+      width: 100%;
+      height: auto;
+      background-color: #fff;
+    }
+  }
+  .popup-back-preview {
+    left: calc(#{$popup_prev_visible} - #{$popup__width});
+    @include vpw_max($popup_prev_break) {
+      left: calc(#{$popup_prev_visible} + #{$popup__space} + #{$popup__space} - 100%);
+    }
+  }
+  .popup-next-preview {
+    right: calc(#{$popup_prev_visible} - #{$popup__width});
+    @include vpw_max($popup_prev_break) {
+      right: calc(#{$popup_prev_visible} + #{$popup__space} + #{$popup__space} - 100%);
+    }
+  }
+  .popup-container {
+    width: 100%;
+    width: fit-content;
+    max-width: $popup__width;
+    min-width: 304px;
+    margin: 40px $popup__space;
+    max-height: 100%;
+    @include mobile {
+      .popup-container {
+        margin: 0;
+        height: 100vh;
+      }
+    }
+    &:not(.popup-preview) {
+      position: relative;
+      .close {
+        right: -40px;
+        top: -40px;
+      }
+    }
+    &:hover {
+      .arrow {
+        opacity: 1;
+      }
+    }
+    .popup-content {
+      line-height: 0;
+      min-width: 400px;
+      @include mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+      }
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        background-color: #fff;
+      }
+    }
+    .close {
+      color: transparent;
+      display: flex;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      justify-content: center;
+      align-content: center;
+      cursor: pointer;
+      position: absolute;
+      z-index: 231;
+      right: 20px;
+      top: 20px;
+      @include mobile {
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+
+/* POPUP NAVIGATION ARROWS
+/––––––––––––––––––––––––*/
+.popup .arrow {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 35px);
+  border: solid transparent;
+  border-width: 5px 10px;
+  width: 40px;
+  height: 70px;
+  transition: $transition_fast;
+  opacity: 0;
+  @include mobile {
+    top: calc(50% - 20px);
+    width: 25px;
+    height: 40px;
+  }
+  &.back {
+    left: 20px;
+    @include mobile {
+      left: 5vw;
+    }
+  }
+  &.next {
+    transform: rotate(180deg);
+    right: 20px;
+    @include mobile {
+      right: 5vw;
+    }
+  }
+  &.hidden {
+    opacity: 0;
+  }
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

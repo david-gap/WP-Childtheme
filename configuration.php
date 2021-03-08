@@ -8,7 +8,7 @@
  * • include all php classes
  *
  * @author      David Voglgsang
- * @version     1.1
+ * @version     1.1.1
  *
 */
 
@@ -85,7 +85,7 @@ Table of Contents:
   /------------------------*/
   function prefix_RunClassesInit(){
     // selection
-    // options: 'WPseo', 'WPgutenberg', 'WPsearch', 'WPimgAttr', 'imgDC', 'FileEmbed', 'WPgalleries'
+    // options: 'WPseo', 'WPgutenberg', 'WPsearch', 'WPimgAttr', 'imgDC', 'FileEmbed', 'WPgalleries', Mautic
     $runClasses = array('core_BaseFunctions', 'core_WPadmin', 'WPinit', 'template');
     // init classes
     foreach ($runClasses as $key => $class) {

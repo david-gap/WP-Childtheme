@@ -48,7 +48,7 @@ body.frontend {
   .before-container,
   .after-container {
     width: 100%;
-    max-width: calc(#{$container_spacing} / 2);
+    max-width: $container_spacing;
     min-width: fit-content;
     &:empty {
       padding: 0;

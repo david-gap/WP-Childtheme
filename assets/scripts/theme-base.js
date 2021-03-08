@@ -2,7 +2,7 @@
  * All template base javascript functions
  *
  * @author      David Voglgsang
- * @version     1.0
+ * @version     1.1
  *
  */
 
@@ -55,6 +55,13 @@ function debounce(func, wait, immediate) {
     if (callNow) func.apply(context, args);
   };
 };
+
+
+/* Unique id generator
+/------------------------*/
+let uniqueID = () => {
+  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+}
 
 
 /* Convert RGB color to HEX code
@@ -188,24 +195,17 @@ function themeConfiguration(data){
 /* Sticky menu
 /------------------------*/
 function StickyMenu(action) {
-  // check if sticky is active from load
-  if (body.classList.contains('sticky_onload')) {
-    var onload = true;
-    // window.removeEventListener('scroll', debounceSticky);
-  } else {
-    var onload = false;
-  }
   // get new scroll position and header height
   var scroll = window.scrollY,
-      headerHeight = header.offsetHeight
+      headerHeight = header.offsetHeight;
   // set sticky
-  if(body.classList.contains('stickyable') && (scroll > scrollPosition && onload == false || action == "load")) {
+  if(body.classList.contains('stickyable') && scroll > scrollPosition) {
     if(scroll > headerHeight || onload == true){
-        body.classList.add("sticky");
-        main.style.marginTop = headerHeight + 'px';
-      }
+      body.classList.add("sticky");
+      main.style.marginTop = headerHeight + 'px';
+    }
   } else {
-    if(body.classList.contains('stickyable') && scroll < headerHeight && onload == false){
+    if(body.classList.contains('stickyable') && scroll < headerHeight){
       body.classList.remove("sticky");
       main.style.marginTop = '';
     }
@@ -223,9 +223,6 @@ var debounceSticky = debounce(function() {
   StickyMenu();
 }, 100);
 window.addEventListener('scroll', debounceSticky);
-window.onload = function() {
-  StickyMenu("load");
-};
 
 
 /* Hamburger switch
@@ -266,7 +263,7 @@ function funcCall(){
   }
 }
 var actionButtons = document.querySelectorAll('.funcCall');
-if(actionButtons){
+if(actionButtons.length !== 0){
   Array.from(actionButtons).forEach(function(element) {
     element.addEventListener('click', funcCall);
     element.addEventListener('keypress', funcCall);
@@ -285,9 +282,74 @@ function toggleBlock(){
   this.classList.toggle("active");
 }
 var toggleButtons = document.querySelectorAll('.toggle > .label');
-if(toggleButtons){
+if(toggleButtons.length !== 0){
   Array.from(toggleButtons).forEach(function(element) {
     element.addEventListener('click', toggleBlock);
     element.addEventListener('keypress', toggleBlock);
   });
+}
+
+
+
+/*==================================================================================
+  FORM
+==================================================================================*/
+
+/* deselect radio button
+/------------------------*/
+function deselectRadioButtons(rootElement) {
+  if(!rootElement) rootElement = document;
+  if(!window.radioChecked) window.radioChecked = null;
+  window.radioClick = function(e) {
+    const obj = e.target;
+    if(e.keyCode) return obj.checked = e.keyCode!=32;
+    obj.checked = window.radioChecked != obj;
+    window.radioChecked = obj.checked ? obj : null;
+  }
+  rootElement.querySelectorAll("input[type='radio']").forEach( radio => {
+    radio.setAttribute("onclick", "radioClick(event)");
+    radio.setAttribute("onkeyup", "radioClick(event)");
+  });
+}
+deselectRadioButtons();
+
+
+
+/*==================================================================================
+  POP UP
+==================================================================================*/
+
+/* Create
+/------------------------*/
+function closePopUp(){
+  // enable scrolling
+  root.classList.remove('popup-noscroll');
+  // hide and remove popup
+  var popup = document.querySelector('.popup');
+  popup.classList.add('closed');
+  popup.remove();
+}
+
+
+/* Create
+/------------------------*/
+function loadPopUp(){
+  const popup_close = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24.9 24.9" style="enable-background:new 0 0 24.9 24.9;" xml:space="preserve"><rect x="-3.7" y="10.9" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -5.1549 12.4451)" fill="#fff" width="32.2" height="3"/><rect x="10.9" y="-3.7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -5.1549 12.4451)" fill="#fff" width="3" height="32.2"/></svg>',
+        popup_content = '<div class="popup closed" data-content="img-popup"><div class="popup-container"><span class="close">' + popup_close + '</span><div class="popup-content"></div></div></div>';
+  // inser pop up
+  body.insertAdjacentHTML('beforeend', popup_content);
+  // disable scrolling and show popup
+  setTimeout(function() {
+    var popup = document.querySelector('.popup');
+    root.classList.add('popup-noscroll');
+    popup.classList.remove('closed');
+    // add closing event
+    var closePopUpButtons = document.querySelectorAll('.popup > .popup-container > .close');
+    if(closePopUpButtons.length > 0){
+      Array.from(closePopUpButtons).forEach(function(closeButton) {
+        closeButton.addEventListener('click', closePopUp);
+        closeButton.addEventListener('keypress', closePopUp);
+      });
+    }
+  }, 500);
 }

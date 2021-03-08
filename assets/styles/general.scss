@@ -103,17 +103,23 @@ body.frontend  {
       /* Gutenberg font size
       /––––––––––––––––––––––––*/
       font-size: var(--font-size);
+      line-height: calc(var(--font-size) * 1.2);
       @include mobile {
-        font-size: calc(var(--font-size) * var($gutenberg__font_scale));
+        font-size: calc(var(--font-size) * #{$gutenberg__font_scale});
+        line-height: calc(var(--font-size) * #{$gutenberg__font_scale} * 1.2);
       }
       /* Anchor position
       /––––––––––––––––––––––––*/
       // anchors are not allowed to have top spacing
       &[id]:target {
-        // scroll-margin-top: 100px;
-        // scroll-snap-margin-top: 100px;
+        // scroll-margin-top: $html__anchor;
+        // scroll-snap-margin-top: $html__anchor;
         padding-top: $html__anchor;
         margin-top: -$html__anchor;
+        @include mobile {
+          padding-top: $html__anchor_mobile;
+          margin-top: -$html__anchor_mobile;
+        }
       }
     }
   }

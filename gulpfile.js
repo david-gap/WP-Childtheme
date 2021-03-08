@@ -179,6 +179,9 @@ gulp.task('backend_javascript', gulp.series('clean:backend_javascript', function
     ], { base: './' }))
     .pipe(plumber({errorHandler: notify.onError("<%= error.message %>")}))
     .pipe(concat('script_backend.min.js'))
+    .pipe(babel({
+      presets: ['@babel/preset-env']
+    }))
     .pipe(uglify())
     .pipe(rename('dist/script_backend.min.js'))
     .pipe(gulp.dest('./'))
