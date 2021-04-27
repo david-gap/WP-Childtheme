@@ -1,3 +1,14 @@
+wp.blocks.registerBlockStyle( 'core/group', [{
+  name: 'fullheight',
+  label: 'Full height',
+  isDefault: false,
+},
+{
+  name: 'container',
+  label: 'Container',
+  isDefault: false,
+}] );
+
 // wp.blocks.registerBlockStyle( 'core/paragraph', [{
 //   name: 'class-name-one',
 //   label: 'Option one'

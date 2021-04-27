@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.10.4 | 27.03.2021 <gutenberg blocks, sticky update>
+* gutenberg container with full height
+* gutenberg block style register container
+* gutenberg block vimeo support from master theme
+* sticky menu js script fix
+* js function to detect if element is in viewport
+
 ## 1.9.4 | 08.03.2021 <gulp, js, mautic, anchor & inline fs>
 * add gulp-babel to allow const and let
 * add use strict to javascript

@@ -2,7 +2,7 @@
  * All template base javascript functions
  *
  * @author      David Voglgsang
- * @version     1.1
+ * @version     1.2
  *
  */
 
@@ -115,6 +115,19 @@ function slugify(Text){
 }
 
 
+/* Check if element is visible
+/------------------------*/
+function isInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+
 /* AJAX function
 Example of calling ajax:
 var configuration = {
@@ -198,16 +211,24 @@ function StickyMenu(action) {
   // get new scroll position and header height
   var scroll = window.scrollY,
       headerHeight = header.offsetHeight;
-  // set sticky
-  if(body.classList.contains('stickyable') && scroll > scrollPosition) {
-    if(scroll > headerHeight || onload == true){
-      body.classList.add("sticky");
-      main.style.marginTop = headerHeight + 'px';
-    }
+  if(action == "load" && body.classList.contains('stickyable') === false){
+    // set main margin for sticky on load
+    main.style.marginTop = headerHeight + 'px';
   } else {
-    if(body.classList.contains('stickyable') && scroll < headerHeight){
-      body.classList.remove("sticky");
+    // check if header is stickyable
+    if(body.classList.contains('stickyable') && scroll > scrollPosition){
+      body.classList.add("sticky");
+      // set main margin for sticky after scroll
+      if(scroll > headerHeight || action == "load"){
+        main.style.marginTop = headerHeight + 'px';
+      }
+    }
+  }
+  // reset sticky if sticky is not perminent
+  if (scroll < headerHeight) {
+    if(body.classList.contains('stickyable')){
       main.style.marginTop = '';
+      body.classList.remove("sticky");
     }
   }
   // update main scroll position
@@ -223,6 +244,9 @@ var debounceSticky = debounce(function() {
   StickyMenu();
 }, 100);
 window.addEventListener('scroll', debounceSticky);
+window.onload = function() {
+  StickyMenu("load");
+};
 
 
 /* Hamburger switch
