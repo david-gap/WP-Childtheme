@@ -16,6 +16,8 @@ Table of Contents:
   1.0 GENERAL
   2.0 HEADER
   3.0 MAIN
+    3.1 SPACING
+    3.2 BLOG & SEARCH
   4.0 FOOTER
 =======================================================*/
 
@@ -149,6 +151,9 @@ body.frontend {
   /*==================================================================================
   3.0 MAIN
   ==================================================================================*/
+
+  /* 3.1 SPACING
+  /––––––––––––––––––––––––*/
   > main {
     margin: $space_double 0;
     section,
@@ -177,6 +182,7 @@ body.frontend {
       & > .toggle > div ul,
       & > .toggle > div img,
       & > .toggle > div figure,
+      & > .block-posts,
       & > #search-form {
         margin-bottom: $space;
         &:last-child {
@@ -200,6 +206,57 @@ body.frontend {
     }
     h4, h5, h6 {
       margin-bottom: 0;
+    }
+  }
+
+
+  /* 3.2 BLOG & SEARCH
+  /––––––––––––––––––––––––*/
+  #search-results,
+  #home,
+  #archive {
+    margin-top: 20px;
+    article {
+      &.flex {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        @include mobile {
+          flex-direction: column;
+          > div,
+          > img {
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: calc(60% - 20px);
+          margin-right: 20px;
+          .entry-content {
+            flex-grow: 1;
+          }
+        }
+        > img,
+        > figure {
+          width: 40%;
+          margin: 0;
+          line-height: 0,
+        }
+      }
+      + article {
+        margin-top: 40px;
+      }
+      .post-meta {}
+      .list-category {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 

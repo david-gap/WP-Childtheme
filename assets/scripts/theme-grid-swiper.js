@@ -2,7 +2,7 @@
  * Swiper & Grid gallery with popup
  *
  * @author      David Voglgsang
- * @version     1.0
+ * @version     1.2
  *
  */
 
@@ -40,9 +40,11 @@ if(activeGalleries.length > 0){
 function addNavArrows(gallery){
   gallery.insertAdjacentHTML('afterbegin', galleryArrowBefore);
   gallery.insertAdjacentHTML('beforeend', galleryArrowAfter);
+  var getcolumnssum    = gallery.closest(".gallery-swiper").getAttribute('data-columns'),
+      columnssum       = getcolumnssum === null ? 1 : parseInt(getcolumnssum);
   // show next arrow if more elements exist
   var galleryChildren = gallery.querySelectorAll('ul li');
-  if (galleryChildren.length > 1) {
+  if (galleryChildren.length > 1 && columnssum < galleryChildren.length) {
     var arrowNext = gallery.querySelector('.next');
     arrowNext.classList.remove('hidden');
   }
@@ -60,16 +62,21 @@ function addNavArrows(gallery){
 /* Click on arrow
 /------------------------*/
 function clickArrow(){
-  // vars
-  var parent          = this.closest(".gallery-swiper"),
-      container       = parent.getElementsByTagName('ul'),
-      arrowBack       = parent.querySelector('.back'),
-      arrowNext       = parent.querySelector('.next'),
-      totalWidth      = container.[0].scrollWidth,
-      stepSize        = container.[0].children.[0].clientWidth,
-      backStep        = container.[0].scrollLeft - stepSize,
-      nextStep        = container.[0].scrollLeft + stepSize,
-      maxRight        = totalWidth - stepSize;
+  // get values
+  var parent           = this.closest(".gallery-swiper"),
+      getcolumnssum    = this.closest(".gallery-swiper").getAttribute('data-columns'),
+      getcolumnspacing = this.closest(".gallery-swiper").getAttribute('data-columnspace'),
+      container        = parent.getElementsByTagName('ul'),
+      arrowBack        = parent.querySelector('.back'),
+      arrowNext        = parent.querySelector('.next');
+  // do math
+  var columnssum       = getcolumnssum === null ? 1 : parseInt(getcolumnssum),
+      columnspacing    = columnspacing === null ? 0 : parseInt(getcolumnspacing),
+      totalWidth       = container.[0].scrollWidth,
+      stepSize         = container.[0].children.[0].clientWidth + (isNaN(columnspacing) ? 0 : columnspacing),
+      backStep         = container.[0].scrollLeft - stepSize,
+      nextStep         = container.[0].scrollLeft + stepSize,
+      maxRight         = totalWidth - (stepSize * columnssum);
   // move slider
   if (this.classList.contains('back')) {
     var offset = backStep;
@@ -81,16 +88,23 @@ function clickArrow(){
     behavior: 'smooth'
   })
   // toggle arrow visibility
-  if(offset == 0){
+  if(offset == 0 || offset < stepSize){
     arrowBack.classList.add('hidden');
   } else {
     arrowBack.classList.remove('hidden');
   }
-  if(offset == maxRight){
+  if(offset == maxRight || offset > maxRight){
     arrowNext.classList.add('hidden');
   } else {
     arrowNext.classList.remove('hidden');
   }
+  // debug
+  // console.log("columns: " + columnssum);
+  // console.log("columns spacing: " + columnspacing);
+  // console.log("step size: " + stepSize);
+  // console.log("offset: " + offset);
+  // console.log("max right: " + maxRight);
+  // console.log("step size: " + stepSize);
 }
 
 /* Check for active swipers
@@ -134,7 +148,7 @@ function getNextImg(){
       currentPopUpID = currentPopUp.getAttribute('data-id'),
       currentImg = document.querySelector('.popup > .popup-container > .popup-content > img'),
       currentImgID = currentImg.getAttribute('data-id'),
-      imgInGallery = document.querySelector('.wp-block-gallery[data-id="' + currentPopUpID + '"] img[data-id="' + currentImgID + '"]'),
+      imgInGallery = document.querySelector('[data-id="' + currentPopUpID + '"] img[data-id="' + currentImgID + '"]'),
       imgInGalleryParent = imgInGallery.closest('li');
   // get next img
   if(this.classList.contains('next')){
@@ -185,7 +199,7 @@ function loadGalleryPopUp(){
     popupContainer.appendChild(self.cloneNode());
     popupContainer.insertAdjacentHTML('afterend', galleryArrowAfter);
     // add id of current gallery
-    var currentGallery = self.closest('.wp-block-gallery');
+    var currentGallery = self.closest('.add-popup');
     popupContainer.setAttribute('data-id', currentGallery.getAttribute('data-id'));
     // check for preview images
     if(currentGallery.classList.contains('popup-preview')){

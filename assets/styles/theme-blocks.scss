@@ -1,0 +1,212 @@
+/**
+ * Theme blocks & block stylings
+ *
+ * @author      David Voglgsang
+ *
+*/
+
+
+/*=======================================================
+Table of Contents:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  1.0 BLOCKS
+    1.1 SOCIAL MEDIA
+    1.2 POSTS
+  2.0 BLOCK STYLINGS
+    2.1 TOGGLE
+    2.2 COLUMNS
+    2.3 FULL HIGHT
+=======================================================*/
+
+
+@import 'vars';
+
+
+body.frontend,
+.block-editor .editor-styles-wrapper {
+
+  /*==================================================================================
+    1.0 BLOCKS
+  ==================================================================================*/
+
+    /* 1.1 SOCIAL MEDIA
+    /––––––––––––––––––––––––*/
+    .socialmedia {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      li {
+        margin: 0 2px;
+        a {
+          display: block;
+          line-height: 0;
+          svg {
+            width: 20px;
+          }
+        }
+        + li {
+          margin-left: $space_half;
+        }
+      }
+    }
+
+
+    /* 1.2 POSTS
+    /––––––––––––––––––––––––*/
+    div.block-posts {
+      --columnSpacing: calc(var(--postColumns) - 1);
+      --spaceFixer: calc(var(--postColumnsSpace) * var(--columnSpacing));
+      --containerwidth: calc(100% - var(--spaceFixer));
+      --childwidth: calc(var(--containerwidth) / var(--postColumns));
+      &.gallery-grid {
+        > ul {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, var(--childwidth));
+          grid-gap: var(--postColumnsSpace);
+          justify-content: space-between;
+          align-content: flex-start;
+        }
+      }
+      &.gallery-swiper {
+        > ul {
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          li {
+            flex: 0 0 var(--childwidth);
+            flex-basis: var(--childwidth);
+            width: var(--childwidth);
+            max-width: var(--childwidth);
+            margin-bottom: 0;
+            margin-right: var(--postColumnsSpace);
+            &:last-child {
+              margin-right: 0;
+            }
+            @include mobile {
+              margin-bottom: var(--postColumnsSpace);
+              flex: 0 0 100%;
+              flex-basis: 100%;
+              width: 100%;
+              max-width: 100%;
+            }
+          }
+        }
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          figure {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+
+
+  /*==================================================================================
+    2.0 BLOCK STYLINGS
+  ==================================================================================*/
+
+    /* 2.1 TOGGLE
+    /––––––––––––––––––––––––*/
+    .toggle {
+      .label {
+        padding: $space $space_half;
+        position: relative;
+        display: block;
+        cursor: pointer;
+        line-height: 1;
+        .arrow {
+          position: absolute;
+          top: calc(50% - 12px);
+          right: $space;
+          display: block;
+          width: 15px;
+          height: 25px;
+          pointer-events: none;
+          transition: .3s;
+          transform: rotate(-90deg);
+        }
+        &.active {
+          .arrow {
+            transform: rotate(90deg);
+          }
+          + div {
+            padding: $space $space_half;
+            height: auto;
+            a {
+              display: inline;
+            }
+          }
+        }
+      }
+      > div {
+        padding: 0;
+        height: 0;
+        overflow: hidden;
+        transition: .3s;
+        a {
+          display: none;
+        }
+        + .label {
+          border-top: 1px solid;
+        }
+      }
+    }
+
+
+    /* 2.2 COLUMNS
+    /––––––––––––––––––––––––*/
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      @include mobile {
+        flex-direction: row;
+      }
+      .column {}
+      .flex-placeholder {
+        height: 0;
+      }
+    }
+
+
+  /* 2.3 SOCIAL MEDIA
+  /––––––––––––––––––––––––*/
+  .socialmedia {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    li {
+      margin: 0 2px;
+      a {
+        display: block;
+        line-height: 0;
+        svg {
+          width: 20px;
+        }
+      }
+      + li {
+        margin-left: $space_half;
+      }
+    }
+  }
+
+
+  /* 1.4 BLOCK STYLES
+  /––––––––––––––––––––––––*/
+
+  // GROUP
+  .is-style-fullheight {
+    .wp-block-group__inner-container {
+      min-height: 100vh;
+      height: 100vh;
+    }
+  }
+
+}

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.10.4 | 27.03.2021 <gutenberg block styling, css clean, swiper>
+* move spacing, block and search styles to structure
+* improve swiper for multiple columns
+* add css file for custom blocks
+*
+
 ## 1.10.4 | 27.03.2021 <gutenberg blocks, sticky update>
 * gutenberg container with full height
 * gutenberg block style register container

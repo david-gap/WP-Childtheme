@@ -10,14 +10,8 @@
 /*=======================================================
 Table of Contents:
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-  1.0 TEMPLATE
-    1.1 TOGGLE
-    1.2 COLUMNS
-    1.3 SOCIAL MEDIA
-    1.4 BLOG & SEARCH
-    1.5 BLOCK STYLES
-  2.0 CUSTOM
-  3.0 BACKEND
+  1.0 FRONTEND
+  2.0 BACKEND
 =======================================================*/
 
 
@@ -28,157 +22,8 @@ body.frontend,
 .block-editor .editor-styles-wrapper {
 
   /*==================================================================================
-    1.0 TEMPLATE PARTS
+    1.0 FRONTEND
   ==================================================================================*/
-
-    /* 1.1 TOGGLE
-    /––––––––––––––––––––––––*/
-    .toggle {
-      .label {
-        padding: $space $space_half;
-        position: relative;
-        display: block;
-        cursor: pointer;
-        line-height: 1;
-        .arrow {
-          position: absolute;
-          top: calc(50% - 12px);
-          right: $space;
-          display: block;
-          width: 15px;
-          height: 25px;
-          pointer-events: none;
-          transition: .3s;
-          transform: rotate(-90deg);
-        }
-        &.active {
-          .arrow {
-            transform: rotate(90deg);
-          }
-          + div {
-            padding: $space $space_half;
-            height: auto;
-            a {
-              display: inline;
-            }
-          }
-        }
-      }
-      > div {
-        padding: 0;
-        height: 0;
-        overflow: hidden;
-        transition: .3s;
-        a {
-          display: none;
-        }
-        + .label {
-          border-top: 1px solid;
-        }
-      }
-    }
-
-
-    /* 1.2 COLUMNS
-    /––––––––––––––––––––––––*/
-    .columns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      @include mobile {
-        flex-direction: row;
-      }
-      .column {}
-      .flex-placeholder {
-        height: 0;
-      }
-    }
-
-
-  /* 1.3 SOCIAL MEDIA
-  /––––––––––––––––––––––––*/
-  .socialmedia {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    li {
-      margin: 0 2px;
-      a {
-        display: block;
-        line-height: 0;
-        svg {
-          width: 20px;
-        }
-      }
-      + li {
-        margin-left: $space_half;
-      }
-    }
-  }
-
-
-  /* 1.4 BLOG & SEARCH
-  /––––––––––––––––––––––––*/
-  #search-results,
-  #home,
-  #archive {
-    margin-top: 20px;
-    article {
-      &.flex {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        @include mobile {
-          flex-direction: column;
-          > div,
-          > img {
-            width: 100%;
-            margin-right: 0;
-          }
-        }
-        > div {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          width: calc(60% - 20px);
-          margin-right: 20px;
-          .entry-content {
-            flex-grow: 1;
-          }
-        }
-        > img,
-        > figure {
-          width: 40%;
-          margin: 0;
-          line-height: 0,
-        }
-      }
-      + article {
-        margin-top: 40px;
-      }
-      .post-meta {}
-      .list-category {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-    }
-  }
-
-
-  /* 1.5 BLOCK STYLES
-  /––––––––––––––––––––––––*/
-
-  // GROUP
-  .is-style-fullheight {
-    .wp-block-group__inner-container {
-      min-height: 100vh;
-      height: 100vh;
-    }
-  }
 
 
 
