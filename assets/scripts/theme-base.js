@@ -243,7 +243,11 @@ function StickyMenu(action) {
 var debounceSticky = debounce(function() {
   StickyMenu();
 }, 100);
+var debounceStickyResize = debounce(function() {
+  StickyMenu("load");
+}, 100);
 window.addEventListener('scroll', debounceSticky);
+window.addEventListener('resize', debounceStickyResize);
 window.onload = function() {
   StickyMenu("load");
 };

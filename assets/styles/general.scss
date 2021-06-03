@@ -178,6 +178,18 @@ body.frontend  {
     margin-right: calc(-100vw / 2 + 100% / 2);
     max-width: 100vw;
     width: 100vw;
+    &.wp-block-group.is-style-content-container {
+      @include vpw_max($container__width) {
+        margin-left: -$container__side;
+        margin-right: -$container__side;
+      }
+    }
+    &.wp-block-cover.is-style-content-container {
+      @include mobile {
+        margin-left: -$container__side;
+        margin-right: -$container__side;
+      }
+    }
     img {
       width: 100vw;
     }

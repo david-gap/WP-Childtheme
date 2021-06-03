@@ -1,10 +1,14 @@
 # CHANGELOG
 
-## 1.10.4 | 27.03.2021 <gutenberg block styling, css clean, swiper>
+## 1.11.5 | 03.06.2021 <sticky resize, centered blocks, header fix>
+* check sticky header on resize
+* add centered container for gutenberg group and cover block
+* fix header responsive
+
+## 1.11.4 | 27.03.2021 <gutenberg block styling, css clean, swiper>
 * move spacing, block and search styles to structure
 * improve swiper for multiple columns
 * add css file for custom blocks
-*
 
 ## 1.10.4 | 27.03.2021 <gutenberg blocks, sticky update>
 * gutenberg container with full height

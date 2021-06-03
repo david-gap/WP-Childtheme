@@ -4,8 +4,14 @@ wp.blocks.registerBlockStyle( 'core/group', [{
   isDefault: false,
 },
 {
-  name: 'container',
-  label: 'Container',
+  name: 'content-container',
+  label: 'Content centered',
+  isDefault: false,
+}] );
+
+wp.blocks.registerBlockStyle( 'core/cover', [{
+  name: 'content-container',
+  label: 'Content centered',
   isDefault: false,
 }] );
 
