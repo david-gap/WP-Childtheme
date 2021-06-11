@@ -15,19 +15,19 @@
 /*==================================================================================
   THEME
 ==================================================================================*/
-@import 'general';
-@import 'theme-structure';
-@import 'theme-hamburger';
-@import 'theme-sticky';
-@import 'theme-blocks';
+@import '../../../mastertheme/assets/styles/general';
+@import '../../../mastertheme/assets/styles/theme-structure';
+@import '../../../mastertheme/assets/styles/theme-hamburger';
+@import '../../../mastertheme/assets/styles/theme-sticky';
+@import '../../../mastertheme/assets/styles/theme-blocks';
 
 
 
 /*==================================================================================
   CLASSES ADDONS
 ==================================================================================*/
-@import 'theme-popup';
-@import 'theme-grid-swiper';
+@import '../../../mastertheme/assets/styles/theme-popup';
+@import '../../../mastertheme/assets/styles/theme-grid-swiper';
 
 
 

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.11.5 | 11.06.2021 <default css to master>
+* move default theme styles to master theme
+
 ## 1.11.5 | 03.06.2021 <sticky resize, centered blocks, header fix>
 * check sticky header on resize
 * add centered container for gutenberg group and cover block
