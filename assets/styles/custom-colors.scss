@@ -21,7 +21,9 @@ Table of Contents:
     2.4 ACTIVE MENU
     2.5 DIVIDER
     2.6 INPUTS
-    2.7 OTHERS
+    2.7 TOGGLE ICON
+    2.8 LOADING
+    2.9 OTHERS
   3.0 DARK COLORING
     3.1 MAIN BG
     3.2 LOGO TEXT
@@ -29,7 +31,9 @@ Table of Contents:
     3.4 ACTIVE MENU
     3.5 DIVIDER
     3.6 INPUTS
-    3.7 OTHERS
+    2.7 TOGGLE ICON
+    2.8 LOADING
+    3.9 OTHERS
   4.0 CUSTOMIZING
 =======================================================*/
 
@@ -134,7 +138,20 @@ body.frontend,
       &:-moz-placeholder {color: $light__main_color; }
     }
 
-    /* 2.7 OTHERS
+    /* 2.7 TOGGLE ICON
+    /––––––––––––––––––––––––*/
+    .toggle > .label .icon:before,
+    .toggle > .label .icon:after {
+      background-color: $light__main_color;
+    }
+
+    /* 2.8 LOADING
+    /––––––––––––––––––––––––*/
+    .loading:before {
+      color: $light__main_color;
+    }
+
+    /* 2.9 OTHERS
     /––––––––––––––––––––––––*/
 
 
@@ -202,7 +219,20 @@ body.frontend,
       &:-moz-placeholder {color: $dark__main_color; }
     }
 
-    /* 3.7 OTHERS
+    /* 3.7 TOGGLE ICON
+    /––––––––––––––––––––––––*/
+    .toggle > .label .icon:before,
+    .toggle > .label .icon:after {
+      background-color: $dark__main_color;
+    }
+
+    /* 3.8 LOADING
+    /––––––––––––––––––––––––*/
+    .loading:before {
+      color: $dark__main_color;
+    }
+
+    /* 3.9 OTHERS
     /––––––––––––––––––––––––*/
 
 

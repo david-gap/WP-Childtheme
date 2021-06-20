@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.11.6 | 20.06.2021 <input max-width, fieldset styles>
+* fix input max width
+* fieldset styles
+
 ## 1.11.5 | 11.06.2021 <default css to master>
 * move default theme styles to master theme
 

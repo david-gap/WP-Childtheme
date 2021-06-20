@@ -95,6 +95,17 @@ body.frontend,
     font-size: 100%;
     font-family: inherit;
   }
+  // fieldset
+  fieldset {
+    legend {
+      font-weight: bold;
+    }
+  }
+  .textsearch {
+    label {
+      font-weight: bold;
+    }
+  }
 
 
 
