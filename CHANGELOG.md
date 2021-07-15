@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.11.7 | 15.07.2021 <deploy issue>
+* css vars for black & white
+* remove theme JS from vendors
+* add default customizer css file
+* remove vars and forms css file
+* remove default styles for colors and fonts
+
 ## 1.11.6 | 20.06.2021 <input max-width, fieldset styles>
 * fix input max width
 * fieldset styles

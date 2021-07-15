@@ -10,31 +10,45 @@
 
 @charset 'UTF-8';
 
-
-
 /*==================================================================================
-  THEME
+  FUNCTIONS
 ==================================================================================*/
-@import '../../../mastertheme/assets/styles/general';
-@import '../../../mastertheme/assets/styles/theme-structure';
-@import '../../../mastertheme/assets/styles/theme-hamburger';
-@import '../../../mastertheme/assets/styles/theme-sticky';
-@import '../../../mastertheme/assets/styles/theme-blocks';
 
+$breakpoint: 768px;
 
+/* VIEWPOINT BY BREAKPOINTS
+/––––––––––––––––––––––––*/
+// breakpoint-width defined in vars.scss
+@mixin desktop {
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: #{$breakpoint - 1px}) {
+    @content;
+  }
+}
 
-/*==================================================================================
-  CLASSES ADDONS
-==================================================================================*/
-@import '../../../mastertheme/assets/styles/theme-popup';
-@import '../../../mastertheme/assets/styles/theme-grid-swiper';
+/* VIEWPOINT BY PIXELS
+/––––––––––––––––––––––––*/
+// usage example:  { ... }
+@mixin vpw_min($min) {
+    @media (min-width: #{$min}) { @content; }
+}
+@mixin vpw_max($max) {
+    @media (max-width: #{$max}) { @content; }
+}
+@mixin vpw($min: 0px, $max: 0px) {
+    @media (min-width: #{$min}) and (max-width: #{$max}) { @content; }
+}
 
 
 
 /*==================================================================================
   CUSTOMIZING
 ==================================================================================*/
-@import 'custom-forms';
+@import 'responsive';
 @import 'custom-fonts';
 @import 'custom-colors';
 @import 'custom';

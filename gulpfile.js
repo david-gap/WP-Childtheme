@@ -105,7 +105,6 @@ gulp.task('browsersync', function() {
 // actions: compile, minify, prefix, rename
 // to:      dist/style.min.css
 gulp.task('css', gulp.series('clean:css', function() {
-
   return gulp
     .src(assets['css'].concat(vendors['css']))
     .pipe(plumber({errorHandler: notify.onError("<%= error.message %>")}))
@@ -119,7 +118,6 @@ gulp.task('css', gulp.series('clean:css', function() {
 }));
 // BACKEND FILE
 gulp.task('backend_css', gulp.series('clean:backend_css', function() {
-
   return gulp
     .src(assets['backend_css'])
     .pipe(plumber({errorHandler: notify.onError("<%= error.message %>")}))
