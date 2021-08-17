@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.11.8 | 17.08.2021 <customizer>
+* add hamburger color to customizer
+* mobile/desktop css class fix
+* remove responsive file from frontend scss
+
 ## 1.11.7 | 15.07.2021 <deploy issue>
 * css vars for black & white
 * remove theme JS from vendors
