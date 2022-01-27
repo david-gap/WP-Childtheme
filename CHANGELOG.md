@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.12.8 | 17.08.2021 <configurator>
+* move configurator file to mastertheme and define class usage in function.php
+
 ## 1.11.8 | 17.08.2021 <customizer>
 * add hamburger color to customizer
 * mobile/desktop css class fix

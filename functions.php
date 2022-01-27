@@ -5,7 +5,7 @@
  * • custom functions
  *
  * @author      David Voglgsang
- * @since       1.0
+ * @since       1.1
  *
 */
 
@@ -19,6 +19,8 @@ Table of Contents:
   2.2 PATTERNS
 3.0 CUSTOM FUNCTIONS
   3.1 CUSTOM FUNCTIONS DEMO
+4.0 SHORTCODES
+  4.1 DEMO
 =======================================================*/
 
 
@@ -28,7 +30,15 @@ Table of Contents:
 
 /* 1.1 LOAD THE CONFIGURATION FILE
 /------------------------*/
-require_once( get_stylesheet_directory() . '/configuration.php' );
+$childConfig = get_stylesheet_directory() . '/configuration.php';
+if(file_exists($childConfig)):
+  require_once( $childConfig );
+else:
+  // OPTIONS: core_FormBuilder, core_Mail, FileEmbed, imgDC, Mautic, WPgalleries, WPgutenberg, WPimgAttr, WPsearch, WPseo
+  global $additionalClasses;
+  $additionalClasses = ['WPgutenberg', 'WPseo'];
+  require_once( get_template_directory() . "/configuration.php" );
+endif;
 
 
 
@@ -124,3 +134,28 @@ require_once( get_stylesheet_directory() . '/configuration.php' );
   function DemoFunction(array $array = array(), string $string = "", bool $bool = true){
     // Do something
   }
+
+
+
+/*==================================================================================
+  4.0 SHORTCODES
+==================================================================================*/
+
+  /* 4.1 DEMO
+  /------------------------*/
+  /**
+    * attributes
+    * @param array $atts: list of all shortcode attributes
+    * @param string string: used for...
+    * @param bool bool: used for...
+  */
+  function shortcodeDemo($atts){
+    $output = '';
+    $config = shortcode_atts( array(
+      'string' => '',
+      'bool' => 0
+    ), $atts );
+
+    return $output;
+  }
+  add_shortcode('demo', 'shortcodeDemo');
