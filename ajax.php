@@ -17,7 +17,7 @@ if($access == 'granted'):
 
   /* CONNECT TO DATABASE
   /===================================================== */
-  $allow_connection = array('DEMO');
+  $allow_connection = array('DEMO', 'loadPageContent');
   if(in_array($run_action, $allow_connection)):
       $url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
       $url = $_SERVER['REQUEST_URI'];
@@ -63,6 +63,24 @@ if($access == 'granted'):
   }
 
 
+  /* GET POST CONTENT
+  /------------------------*/
+  function loadPostContent(){
+    if($_POST['id']):
+      $content = get_the_content( null, false, $_POST['id'] );
+      $return = array(
+        'targetContent' => $_POST['targetContent'] ? str_replace('\\', '', $_POST['targetContent']) : '',
+        'content' => $content
+      );
+    else:
+      $return = array(
+        'log' => 'ID is missing'
+      );
+    endif;
+    echo json_encode($return);
+  }
+
+
 
   /* RUN FUNCTIONS
   /===================================================== */
@@ -72,6 +90,9 @@ if($access == 'granted'):
       break;
     case "configuration":
       getConfigurationFile();
+      break;
+    case "loadPageContent":
+      loadPostContent();
       break;
 
     default:
