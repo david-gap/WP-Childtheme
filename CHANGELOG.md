@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.13.8 | 29.06.2022 <block options, demos>
+* block style options
+* javascript functions to reuse
+* Demo for class with cpt
+
 ## 1.12.8 | 17.08.2021 <configurator>
 * move configurator file to mastertheme and define class usage in function.php
 
